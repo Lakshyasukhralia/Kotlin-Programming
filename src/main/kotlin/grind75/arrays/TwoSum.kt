@@ -55,6 +55,7 @@ class Solution {
 /**
  * Approach #2
  * O(n)
+ * https://docs.google.com/document/d/1XEL6vhYCfucVoZ6GJaHpkkTj88LzCGqeBXsjt0ten10/edit?usp=sharing
  */
 class Solution2 {
     fun twoSum(nums: IntArray, target: Int): IntArray {
