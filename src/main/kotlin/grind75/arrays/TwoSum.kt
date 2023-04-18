@@ -1,7 +1,5 @@
 package grind75.arrays
 
-import java.lang.IllegalStateException
-
 /**
  * Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
  *
@@ -38,27 +36,19 @@ import java.lang.IllegalStateException
  * Approach #1
  * O(n^2)
  */
-class Solution {
-    fun twoSum(nums: IntArray, target: Int): IntArray {
+class TwoSum {
+    fun twoSum1(nums: IntArray, target: Int): IntArray {
 
         for (i in 0 until nums.size) {
             for (j in i + 1 until nums.size) {
-                println("${nums[i]} + ${nums[j]} = ${nums[i] + nums[j]}")
                 if (nums[i] + nums[j] == target) return intArrayOf(i, j)
             }
         }
 
         return intArrayOf(1)
     }
-}
 
-/**
- * Approach #2
- * O(n)
- * https://docs.google.com/document/d/1XEL6vhYCfucVoZ6GJaHpkkTj88LzCGqeBXsjt0ten10/edit?usp=sharing
- */
-class Solution2 {
-    fun twoSum(nums: IntArray, target: Int): IntArray {
+    fun twoSum2(nums: IntArray, target: Int): IntArray {
 
         val map = mutableMapOf<Int, Int>()
 
@@ -66,7 +56,7 @@ class Solution2 {
 
             val diff = target - v
 
-            map[diff]?.let { return@twoSum intArrayOf(i, map[diff]!!) }
+            map[diff]?.let { return@twoSum2 intArrayOf(i, map[diff]!!) }
 
             map[v] = i
         }
@@ -75,7 +65,13 @@ class Solution2 {
     }
 }
 
+/**
+ * Approach #2
+ * O(n)
+ * https://docs.google.com/document/d/1XEL6vhYCfucVoZ6GJaHpkkTj88LzCGqeBXsjt0ten10/edit?usp=sharing
+ */
+
 fun main() {
-    val sol = Solution2().twoSum(intArrayOf(1, 2, 3, 4), 6)
+    val sol = TwoSum().twoSum2(intArrayOf(1, 2, 3, 4), 6)
     sol.forEach { print("${it},") }
 }
